@@ -6,7 +6,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import {IgoModule} from 'igo2';
+import {IgoModule, LanguageLoader, provideLanguageLoader} from 'igo2';
+import {Http} from '@angular/http';
+
+export function translateLoader(http: Http) {
+  return new LanguageLoader(http, './assets/locale/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -26,7 +31,8 @@ import {IgoModule} from 'igo2';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    provideLanguageLoader(translateLoader),
   ]
 })
 export class AppModule {}
