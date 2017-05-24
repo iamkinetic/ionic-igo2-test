@@ -33,6 +33,6 @@ export function translateLoader(http: Http) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     provideLanguageLoader(translateLoader),
-  ]
+  ],
 })
 export class AppModule {}

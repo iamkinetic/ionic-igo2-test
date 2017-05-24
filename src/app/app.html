@@ -1,11 +1,1 @@
-Map:
-<igo-map-field
-  formControlName="location"
-  placeholder="Localisation"
-  [decimals]="8"
-  [readonly]="false"
-  [layers]="(map.layers$ | async) | clone"
-  [view]="contextService.context$.value ? (contextService.context$ | async).map.view : undefined">
-</igo-map-field>
-Sous-map.
-<!--<ion-nav [root]="rootPage"></ion-nav>-->
+<ion-nav [root]="rootPage"></ion-nav>

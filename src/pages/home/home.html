@@ -7,8 +7,14 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  Map:
+  <igo-map-field
+    formControlName="location"
+    placeholder="Localisation"
+    [decimals]="8"
+    [readonly]="false"
+    [layers]="(map.layers$ | async) | clone"
+    [view]="contextService.context$.value ? (contextService.context$ | async).map.view : undefined">
+  </igo-map-field>
+  Sous-map.
 </ion-content>
