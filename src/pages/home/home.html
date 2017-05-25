@@ -8,13 +8,31 @@
 
 <ion-content padding>
   Map:
-  <igo-map-field
+  <!--<igo-map-field
     formControlName="location"
     placeholder="Localisation"
     [decimals]="8"
     [readonly]="false"
     [layers]="(map.layers$ | async) | clone"
     [view]="contextService.context$.value ? (contextService.context$ | async).map.view : undefined">
-  </igo-map-field>
+  </igo-map-field>-->
   Sous-map.
+  <igo-map-browser
+    igoMapContext
+    igoLayerContext
+    igoMapBrowserBinding
+    [map]="map" style="width:400px; height:400px;">
+  </igo-map-browser>
+
+  <form novalidate (ngSubmit)="onSubmit(testForm)" [formGroup]="testForm">
+    <igo-map-field
+      formControlName="location"
+      placeholder="Localisation"
+      [decimals]="8"
+      [readonly]="false"
+      [layers]="(map.layers$ | async) | clone"
+      [view]="contextService.context$.value ? (contextService.context$ | async).map.view : undefined">
+    </igo-map-field>
+    <div>{{testForm.value | json}}</div>
+  </form>
 </ion-content>

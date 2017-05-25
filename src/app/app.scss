@@ -14,3 +14,20 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+/* General page content */
+@import "../../node_modules/openlayers/css/ol";
+
+.content-under-toolbar {
+  height: calc(100% - 64px);
+  overflow: auto;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url(../assets/images/bg-borne.jpg)
+}
+
+@media only screen and (orientation: portrait) {
+  .content-under-toolbar {
+    background-image: url(../assets/images/bg-borne-portrait.jpg);
+  }
+}
